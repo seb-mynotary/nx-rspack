@@ -15,13 +15,19 @@
         "main": "apps/demo/src/main.tsx",
         "tsConfig": "apps/demo/tsconfig.app.json",
         "rspackConfig": "apps/demo/rspack.config.js",
-        "assets": ["apps/demo/src/favicon.ico", "apps/demo/src/assets"]
+        "assets": []
       },
       "configurations": {
         "development": {
           "mode": "development"
         },
         "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/demo/src/env.ts",
+              "with": "apps/demo/src/env.production.ts"
+            }
+          ],
           "mode": "production",
           "optimization": true,
           "sourceMap": false
@@ -38,14 +44,6 @@
         "production": {
           "buildTarget": "demo:build:production"
         }
-      }
-    },
-    "serve-static": {
-      "executor": "@nx/web:file-server",
-      "dependsOn": ["build"],
-      "options": {
-        "buildTarget": "demo:build",
-        "spa": true
       }
     }
   }
