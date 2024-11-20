@@ -14,5 +14,12 @@ The expected output should display the value in the [env.production.ts](apps/dem
 in the meta tag.
 
 
+## Bug 3 - main.css is not hashed
+
+The `main.css` file is not hashed in the `production` configuration.
+
+
 ## Steps to reproduce
 `nx run demo:serve:production` and look at the generated html in the browser.
+`cat dist/apps/demo/index.html | grep VERSION`
+`cat dist/apps/demo/index.html | grep main.css`

@@ -1,3 +1,4 @@
+import './main.scss'
 import {StrictMode} from 'react';
 import * as ReactDOM from 'react-dom/client';
 import {environment} from "./env";
@@ -7,6 +8,6 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <StrictMode>
-    <div>Hello {environment.currentEnvFile} !</div>
+    <div className='test'>Hello {environment.currentEnvFile} !</div>
   </StrictMode>
 );
